@@ -2,26 +2,14 @@ let companies = {
   "schneider": {
     id: 'schneider',
     name: 'Schneider National Carrier',
-    address: {
-      streetNumber: '1234',
-      streetName: 'ShipStuff St.',
-      city: 'Los Angeles',
-      state: 'CA',
-      zipCode: '99999'
-    },
-    phone: '424 424 4555'
+    address: '245 Monrdth Ave, Sacremento CA 10029',
+    phone: '4244244555'
   },
   "amazon": {
     id: 'amazon',
     name: 'Amazon Shipping Service',
-    address: {
-      streetNumber: '5678',
-      streetName: 'Boxes Ave.',
-      city: 'San Diego',
-      state: 'CA',
-      zipCode: '99999'
-    },
-    phone: '424 424 4444'
+    address: '245 Monrdth Ave, Sacremento CA 10029',
+    phone: '4244244444'
   }
 }
 
@@ -30,8 +18,8 @@ let invoices = {
     id: '8xf0y6ziyjabvozdd253nd',
     invoiceNumber: 8082,
     billTo: 'schneider',
-    timestamp: 1467166872634,
-    status: 'requested',
+    timestamp: 1538806606146,
+    status: 'Requested',
     rate: 3,
     loadN: 12455,
     type: 'V',
@@ -43,8 +31,8 @@ let invoices = {
     id: '6ni6ok3ym7mf1p33lnez',
     invoiceNumber: 802,
     billTo: 'schneider',
-    timestamp: 1467166872634,
-    status: 'paid',
+    timestamp: 1538806606146,
+    status: 'Paid',
     rate: 3,
     loadN: 12455,
     type: 'V',
@@ -56,8 +44,8 @@ let invoices = {
     id: 'am8ehyc8byjqgar0jgpub9',
     invoiceNumber: 4032,
     billTo: 'amazon',
-    timestamp: 1467166872634,
-    status: 'declined',
+    timestamp: 1538806606146,
+    status: 'Declined',
     rate: 3,
     loadN: 12455,
     type: 'V',
@@ -93,7 +81,7 @@ function formatInvoice ({ billTo, address, rate, loadN, type, total, length, }) 
     invoiceNumber: generateInvoiceId(),
     billTo: billTo,
     timestamp: Date.now(),
-    status: 'requested',
+    status: 'Requested',
     rate: rate,
     loadN: loadN,
     type: type,

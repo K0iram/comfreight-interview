@@ -1,0 +1,162 @@
+.invoice-container {
+  max-height: 75vh;
+  height: 100%;
+}
+
+.invoice-card {
+  display: flex;
+  justify-content: space-between;
+  max-width: 700px;
+  min-width: 700px;
+  width: 100%;
+  margin: 0 auto;
+  margin: 10px 0 10px 0;
+  position: relative;
+}
+
+.invoice-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-width: 800px;
+}
+
+.invoice-status {
+  width: 175px;
+  background-color: #ffc107;
+  color: #fff;
+  text-align: left;
+  padding-left: 30px;
+  padding-right: 10px;
+  font-weight: bold;
+  margin: 5px;
+}
+
+.paid {
+  background-color: #4caf50;
+}
+
+.declined {
+  background-color: #f44336;
+}
+
+.invoice-status p {
+  color: #000;
+}
+
+.invoice-status__title {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+}
+
+.invoice-status__title h3 {
+  margin: 20px 0 0 0;
+}
+
+.invoice-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.invoice-info h3 {
+  margin: 10px 0 0 0;
+}
+
+.invoice-info p {
+  margin-top: 0;
+  font-weight: bold;
+  color: grey;
+}
+
+.invoice-info__modal button {
+  padding: 0;
+  color: #ff8c00;
+  font-weight: bold;
+}
+
+/* Stepper CSS */
+
+.stepper-container p {
+  font-size: 12px;
+  color: grey;
+}
+.stepper {
+  position: absolute;
+  top: 35%;
+  left: 29%;
+}
+
+.origin {
+  position: absolute;
+  top: 30%;
+  left: 10%;
+}
+
+.destination {
+  position: absolute;
+  top: 30%;
+  right: 30%;
+}
+
+.step {
+  position: absolute;
+  height: 25px;
+  width: 25px;
+  border-radius: 50%;
+  background: white;
+  line-height: 100px;
+  text-align: center;
+}
+
+.first {
+ border: 2px solid #4caf50;
+}
+
+.second {
+ border: 2px solid #f44336;
+}
+
+.step-one {
+  top: 10px;
+  left: 0;
+}
+
+/* line as pseudo element in step one */
+.step-one::after {
+  content: "";
+
+  /* position it in the middle of the circle */
+  position: absolute;
+  top: 50%;
+  left: 100%;
+
+  /* connect circles with a line */
+  width: 110px;
+  height: 0;
+  border-bottom: 2px solid #d4d0d0;
+
+  /* make sure it's behind the circles */
+  z-index: 0;
+}
+
+.step-two {
+  top: 10px;
+  left: 130px;
+}
+
+.filters-container {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 10px;
+}
+
+.filters {
+  width: 350px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}

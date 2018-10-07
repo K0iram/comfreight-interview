@@ -1,11 +1,10 @@
 import React, { Component } from 'react'
-import { BrowserRouter as Router, Route, Switch} from 'react-router-dom'
 import { handleInitialData } from '../actions/shared'
 import {connect} from 'react-redux'
 import CssBaseline from '@material-ui/core/CssBaseline';
 import LoadingBar from 'react-redux-loading'
 import Nav from './Nav'
-import Dashboard from './Dashboard'
+import Tabs from './Tabs'
 
 class App extends Component {
   componentDidMount() {
@@ -16,7 +15,6 @@ class App extends Component {
     const { loading } = this.props
 
     return (
-      <Router>
         <div className='container'>
           <CssBaseline/>
           <Nav/>
@@ -25,16 +23,11 @@ class App extends Component {
             {loading ? (
               null
             ):(
-              <div>
-                <Switch>
-                  <Route path='/' exact component={Dashboard}/>
-                </Switch>
-              </div>
+              <Tabs/>
             )
           }
           </div>
         </div>
-      </Router>
     );
   }
 }

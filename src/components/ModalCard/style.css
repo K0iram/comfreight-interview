@@ -1,0 +1,73 @@
+.modal-card {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.modal-card:focus {
+  outline: 0 !important;
+}
+
+.modal-card__inner {
+  width: 515px;
+}
+
+.modal-card__status {
+  background-color: #ffc107;
+  color: #fff;
+  text-align: left;
+  padding-left: 30px;
+  padding-right: 10px;
+  font-weight: bold;
+}
+
+.modal-card__status h2 {
+  margin: 0;
+  padding: 20px 0 0;
+}
+
+.Paid {
+  background-color: #4caf50;
+}
+
+.Declined {
+  background-color: #f44336;
+}
+
+.invoice-details {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-top: 30px;
+}
+
+.invoice-details h4 {
+  margin: 5px 0 5px;
+}
+
+.invoice-details h2 {
+  margin: 5px 0 5px;
+  padding: 0;
+  color: #333;
+}
+.modal-card__details {
+  margin-left: 30px;
+}
+
+.total-paid {
+  text-align: right;
+  font-weight: bold;
+  margin-right: 30px;
+}
+
+.back-btn {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0;
+}
+
+.back-btn button {
+  color: #ffc107;
+  font-weight: bold;
+}
