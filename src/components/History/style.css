@@ -1,3 +1,7 @@
+.history-container {
+  min-width: 800px;
+}
+
 .invoice-container {
   display: flex;
   flex-direction: column;
@@ -165,6 +169,9 @@
 
 /* Tablet (portrait and landscape) ----------- */
 @media only screen and (min-device-width : 768px) and (max-device-width : 1024px) {
+  .history-container {
+    min-width: 0;
+  }
   .invoice-container {
     min-width: 0;
   }
