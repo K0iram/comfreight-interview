@@ -60,7 +60,7 @@ function generateUID () {
 }
 
 const generateInvoiceId = () => {
-  (Math.floor(Math.random() * 10000) + 10000).toString().substring(1)
+  return (Math.floor(Math.random() * 10000) + 10000).toString().substring(1)
 }
 
 export function _getCompanies () {
@@ -75,28 +75,38 @@ export function _getInvoices () {
   })
 }
 
-function formatInvoice ({ billTo, address, rate, loadN, type, total, length, }) {
+function formatType(type) {
+  if(type === 'Dry Van (V)') {
+    return 'V'
+  } else if(type === 'Box Truck (B)') {
+    return 'B'
+  } else {
+    return 'F'
+  }
+}
+
+function formatInvoice (invoice) {
   return {
     id: generateUID(),
     invoiceNumber: generateInvoiceId(),
-    billTo: billTo,
+    billTo: invoice.billTo,
     timestamp: Date.now(),
     status: 'Requested',
-    rate: rate,
-    loadN: loadN,
-    type: type,
-    loadLength: length,
-    totalAmount: total,
+    rate: invoice.rate,
+    loadN: invoice.loadN,
+    type: formatType(invoice.type),
+    loadLength: invoice.loadLength,
+    totalAmount: invoice.totalAmount,
     totalPaid: 0
   }
 }
 
-function formatCompany ({ id, name, address, phone }) {
+function formatCompany (company) {
   return {
-    id: id,
-    name: name,
-    address: address,
-    phone: phone,
+    id: company.id,
+    name: company.name,
+    address: company.address,
+    phone: company.phone,
   }
 }
 

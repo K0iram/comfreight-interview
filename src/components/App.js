@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { handleInitialData } from '../actions/shared'
 import {connect} from 'react-redux'
-import CssBaseline from '@material-ui/core/CssBaseline';
+import CssBaseline from '@material-ui/core/CssBaseline'
 import LoadingBar from 'react-redux-loading'
 import Nav from './Nav'
 import Tabs from './Tabs'
@@ -28,7 +28,7 @@ class App extends Component {
           }
           </div>
         </div>
-    );
+    )
   }
 }
 

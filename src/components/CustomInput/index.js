@@ -1,15 +1,13 @@
 import React from 'react'
-import TextField from '@material-ui/core/TextField';
-import MenuItem from '@material-ui/core/MenuItem';
-import Select from '@material-ui/core/Select';
-import FormControl from '@material-ui/core/FormControl';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import InputAdornment from '@material-ui/core/InputAdornment';
-import Input from '@material-ui/core/Input';
-import Switch from '@material-ui/core/Switch';
-import Search from '@material-ui/icons/Search';
-
-import './style.css'
+import TextField from '@material-ui/core/TextField'
+import MenuItem from '@material-ui/core/MenuItem'
+import Select from '@material-ui/core/Select'
+import FormControl from '@material-ui/core/FormControl'
+import FormControlLabel from '@material-ui/core/FormControlLabel'
+import InputAdornment from '@material-ui/core/InputAdornment'
+import Input from '@material-ui/core/Input'
+import Switch from '@material-ui/core/Switch'
+import Search from '@material-ui/icons/Search'
 
 
 export const CustomInput = ({ label, onChange, placeholder, type, name }) => {

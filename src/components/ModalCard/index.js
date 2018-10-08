@@ -1,6 +1,6 @@
 import React from 'react'
 import Paper from '@material-ui/core/Paper'
-import { withStyles } from '@material-ui/core/styles';
+import { withStyles } from '@material-ui/core/styles'
 import moment from 'moment'
 import Button from '@material-ui/core/Button'
 
@@ -14,7 +14,7 @@ const styles = theme => ({
     boxShadow: theme.shadows[5],
     padding: theme.spacing.unit * 4,
   },
-});
+})
 
 
 const ModalCard = ({ invoiceData, companies, onClose }) => {
@@ -32,11 +32,11 @@ const ModalCard = ({ invoiceData, companies, onClose }) => {
         </div>
         <div className="modal-card__details">
           {invoiceData.status === 'Declined' &&
-            <p>We were unable to identify the documents <br/> Please call US 424 315 2553</p>
+            <p className="error">We were unable to identify the documents <br/> Please call US 424 315 2553</p>
           }
           <p>Billed To : {companies[invoiceData.billTo].name} </p>
           <div className="shipping-map">
-            <img src="https://www.placehold.it/450x250" alt=""/>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d106095.03265152735!2d-118.22632085738981!3d33.80018816333302!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80c2cae84099d759%3A0xa1003afac42a8faa!2sLong+Beach%2C+CA!5e0!3m2!1sen!2sus!4v1538971614682" frameBorder="0" style={{border:0, width:'95%', height: 200 }} allowFullscreen></iframe>
           </div>
           <p>Rate: {invoiceData.rate}%</p>
           <p>Load N&#176; : {invoiceData.loadN}</p>

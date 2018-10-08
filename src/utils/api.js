@@ -2,6 +2,7 @@ import {
   _getCompanies,
   _getInvoices,
   _saveInvoice,
+  _saveCompany
 } from './_DATA'
 
 export const getInitialData = () => {
@@ -19,5 +20,5 @@ export const saveInvoice = (invoice) => {
 }
 
 export const saveCompany = (company) => {
-  return _saveInvoice(company)
+  return _saveCompany(company)
 }

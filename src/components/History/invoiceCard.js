@@ -16,6 +16,11 @@ const cardColor = (status) => {
   }
 }
 
+const formatAddress = (address) => {
+  let splitAddress = address.split(',')
+  return <p>{splitAddress[0]},<br/>{splitAddress[1]}</p>
+}
+
 const InvoiceCard = ({invoiceData, company, openModal}) => {
   return (
     <Paper className='invoice-card'>
@@ -33,7 +38,7 @@ const InvoiceCard = ({invoiceData, company, openModal}) => {
           <p>2913 Millenium Cir,<br/> Long Beach, CA 20929</p>
         </div>
         <div className="destination">
-          <p>123 NoName St,<br/> Long Beach, CA 20929</p>
+          {formatAddress(company.address)}
         </div>
         <div className="stepper">
           <div className="step step-one first"></div>
@@ -48,7 +53,7 @@ const InvoiceCard = ({invoiceData, company, openModal}) => {
         }
         </div>
         <p>{moment(invoiceData.timestamp).format('YYYY')}</p>
-        <h3>{moment(invoiceData.timestamp).format('ddd, MMM d')}</h3>
+        <h3>{moment(invoiceData.timestamp).format('ddd, MMM D')}</h3>
       </div>
     </Paper>
   )

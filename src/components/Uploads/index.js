@@ -1,23 +1,23 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import { handleSaveInvoice, handleSaveCompany } from '../../actions/shared'
 import Paper from '@material-ui/core/Paper'
 import FileUpload from './FileUpload'
 import { CustomInput, CustomSelect, CustomSwitch } from '../CustomInput'
-import Button from '@material-ui/core/Button';
-import AddIcon from '@material-ui/icons/Add';
-import FormControl from '@material-ui/core/FormControl';
+import Button from '@material-ui/core/Button'
+import AddIcon from '@material-ui/icons/Add'
+import FormControl from '@material-ui/core/FormControl'
 
 import './style.css'
 
 
 class Uploads extends Component {
-
   state = {
     wireTransfer: false,
     invoiceAmount: 0,
     withRate: 0,
     companyName: '',
-    companyAdress: '',
+    companyAddress: '',
     pickUp: '',
     destination: '',
     loadNum: '',
@@ -29,8 +29,8 @@ class Uploads extends Component {
   toggleWireTransfer = e => {
     this.setState({
       wireTransfer: e.target.checked
-    });
-  };
+    })
+  }
 
   handlePriceChange = e => {
     this.setState({
@@ -67,17 +67,70 @@ class Uploads extends Component {
     return wireTransfer ? withWire.toFixed(2) : withoutWire.toFixed(2)
   }
 
+  formatCompanyId = (name) => {
+    const id = name.split(' ')
+
+    return id[0].toLowerCase()
+  }
+
+  handleSubmitInvoice = async () => {
+    const { loadNum, equipmentType, loadLength, companyName, companyAddress } = this.state
+    const { onSubmitInvoice, onSubmitCompany, companies } = this.props
+    const companyId = this.formatCompanyId(companyName)
+
+    if(loadNum == '' || equipmentType == '' || loadLength == '' || companyName == '' || companyAddress == ''){
+      alert('Check That You Have Filled Out All Required Fields')
+      return
+    }
+
+    const invoice = {
+      billTo: companyId,
+      rate: 3,
+      loadN: loadNum,
+      type: equipmentType,
+      loadLength: loadLength,
+      totalAmount: Number(this.calculateRate()),
+      totalPaid: 0
+    }
+
+    const company = {
+      id: companyId,
+      name: companyName,
+      address: companyAddress,
+      phone: '555 555 5555'
+    }
+
+    if(!Object.keys(companies).includes(companyId)){
+      try{
+        await onSubmitInvoice(invoice)
+          console.log("New Invoice Successful!")
+        await onSubmitCompany(company)
+          console.log("New Company Successful!")
+      } catch (err) {
+          console.error(err)
+      }
+    } else {
+      try {
+      await onSubmitInvoice(invoice)
+        console.log("New Invoice Successful!")
+      } catch (err) {
+        console.error(err)
+      }
+    }
+  }
+
   render() {
     const {
       invoiceAmount,
       companyName,
-      companyAdress,
+      companyAddress,
       pickUp,
       destination,
       loadNum,
       equipmentType,
       loadLength,
-      category } = this.state
+      category
+    } = this.state
 
     return (
       <div className="dashboard-container">
@@ -108,8 +161,8 @@ class Uploads extends Component {
                 label='Bill To Company Address'
                 onChange={this.handleInputChange}
                 placeholder='Company Address'
-                name='companyAdress'
-                value={companyAdress}
+                name='companyAddress'
+                value={companyAddress}
                 />
             </div>
             <div className="details-btn">
@@ -156,7 +209,13 @@ class Uploads extends Component {
                   />
                 </FormControl>
                 <FormControl className="length-input">
-                  <CustomInput label='Load Length' onChange={this.handleInputChange} placeholder='Ft 00' type='number' value={loadLength}/>
+                  <CustomInput
+                    label='Load Length'
+                    name='loadLength'
+                    onChange={this.handleInputChange}
+                    placeholder='Ft 00'
+                    type='number'
+                    value={loadLength}/>
                 </FormControl>
               </div>
             </div>
@@ -185,7 +244,7 @@ class Uploads extends Component {
           </Paper>
         </div>
         <div className="add-invoice-btn">
-          <Button variant="fab" aria-label="Add" onClick={()=>{}}>
+          <Button variant="fab" aria-label="Add" onClick={this.handleSubmitInvoice}>
             <AddIcon/>
           </Button>
         </div>
@@ -202,4 +261,11 @@ const mapStateToProps = ({invoices, companies}) => {
   }
 }
 
-export default connect(mapStateToProps)(Uploads)
+const mapDispatchToProps = dispatch => {
+  return {
+    onSubmitInvoice: (invoice) => dispatch(handleSaveInvoice(invoice)),
+    onSubmitCompany: (company) => dispatch(handleSaveCompany(company))
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Uploads)

@@ -1,10 +1,7 @@
 .dashboard-container {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
-  max-height: 65vh;
-  height: 100%;
 }
 
 .forms-container {
@@ -138,11 +135,75 @@
 }
 
 .add-invoice-btn button {
-  background-color: #ff9600;
+  background-color: #ff8c00;
   color: #fff;
 }
 
-.react-swipeable-view-container {
-  height: 75vh;
-  position: relative;
+/* Smartphones (portrait and landscape) ----------- */
+@media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
+  .dashboard-container {
+    max-height: max-content;
+  }
+
+  .forms-container {
+    margin-top: 25px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 200px;
+    width: 100%;
+    max-height: max-content;
+  }
+  .doc-detail__uploads {
+    height: 130px;
+  }
+
+  .detail-container {
+    margin-bottom: 10px;
+  }
+
+  .detail-card {
+    min-width: 300px;
+    margin-bottom: 10px;
+  }
+
+  .document-upload {
+    max-width: 250px;
+    margin: 0 auto;
+    flex-direction: column;
+  }
+
+  .invoice-info {
+    max-width: 250px;
+    margin-left: 25px;
+  }
+
+  .equipment-info {
+    margin-left: 25px;
+  }
+
+  .wiretransfer-switch {
+    margin-left: 25px;
+  }
+
+  .payment-info {
+    max-width: 250px;
+    margin-left: 25px;
+  }
+
+  .add-invoice-btn {
+    justify-content: center;
+  }
+}
+
+/* Tablet (portrait and landscape) ----------- */
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) {
+  .forms-container {
+    flex-direction: column;
+  }
+
+  .detail-card {
+    min-height: 400px;
+    margin-bottom: 10px;
+  }
 }
