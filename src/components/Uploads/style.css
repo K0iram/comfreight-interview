@@ -27,7 +27,7 @@
 }
 
 .doc-detail__uploads {
-  height: 102px;
+  height: 125px;
   overflow: scroll;
 }
 
@@ -137,6 +137,26 @@
 .add-invoice-btn button {
   background-color: #ff8c00;
   color: #fff;
+}
+
+.DropZone {
+  padding: 10px;
+  width: 350px;
+}
+
+.file-list {
+  padding: 0;
+}
+
+.file-item {
+  padding: 0 !important;
+}
+
+.file-item span {
+  text-overflow: ellipsis;
+  width: 310px;
+  overflow: hidden;
+  white-space: nowrap;
 }
 
 /* Smartphones (portrait and landscape) ----------- */
