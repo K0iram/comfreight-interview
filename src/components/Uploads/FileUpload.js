@@ -11,11 +11,16 @@ import './style.css'
 
 class FileUpload extends Component {
   state = {
-    addDoc: false
+    addDoc: false,
+    file: ''
   }
 
   addDoc = () => {
     this.setState({addDoc: !this.state.addDoc})
+  }
+
+  onFileLoad = e => {
+    this.setState({file: e.target.value})
   }
 
   selectValues = [ 'Invoice', 'B.O.L', 'Licence' ]
@@ -27,7 +32,7 @@ class FileUpload extends Component {
         <div className="document-upload__container">
           <div className="document-upload">
             <FormControl aria-describedby="component-helper-text" className="file-input">
-              <Input id="component-helper" type="file" value='' onChange={this.onFileLoad} />
+              <Input id="component-helper" type="file" value={this.state.file} onChange={this.onFileLoad} />
             </FormControl>
             <FormControl>
               <CustomSelect

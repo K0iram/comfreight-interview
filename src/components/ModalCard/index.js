@@ -18,7 +18,6 @@ const styles = theme => ({
 
 
 const ModalCard = ({ invoiceData, companies, onClose }) => {
-  console.log(styles.paper)
   return (
     <Paper className='modal-card'>
       <div className='modal-card__inner'>
@@ -36,7 +35,7 @@ const ModalCard = ({ invoiceData, companies, onClose }) => {
           }
           <p>Billed To : {companies[invoiceData.billTo].name} </p>
           <div className="shipping-map">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d106095.03265152735!2d-118.22632085738981!3d33.80018816333302!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80c2cae84099d759%3A0xa1003afac42a8faa!2sLong+Beach%2C+CA!5e0!3m2!1sen!2sus!4v1538971614682" frameBorder="0" style={{border:0, width:'95%', height: 200 }} allowFullscreen></iframe>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d106095.03265152735!2d-118.22632085738981!3d33.80018816333302!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80c2cae84099d759%3A0xa1003afac42a8faa!2sLong+Beach%2C+CA!5e0!3m2!1sen!2sus!4v1538971614682" frameBorder="0" style={{border:0, width:'95%', height: 200 }} title="shipDirections" allowFullScreen></iframe>
           </div>
           <p>Rate: {invoiceData.rate}%</p>
           <p>Load N&#176; : {invoiceData.loadN}</p>

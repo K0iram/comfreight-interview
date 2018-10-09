@@ -8,6 +8,7 @@ import Button from '@material-ui/core/Button'
 import AddIcon from '@material-ui/icons/Add'
 import FormControl from '@material-ui/core/FormControl'
 
+
 import './style.css'
 
 
@@ -78,7 +79,7 @@ class Uploads extends Component {
     const { onSubmitInvoice, onSubmitCompany, companies } = this.props
     const companyId = this.formatCompanyId(companyName)
 
-    if(loadNum == '' || equipmentType == '' || loadLength == '' || companyName == '' || companyAddress == ''){
+    if(loadNum === '' || equipmentType === '' || loadLength === '' || companyName === '' || companyAddress === ''){
       alert('Check That You Have Filled Out All Required Fields')
       return
     }

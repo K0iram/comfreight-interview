@@ -66,7 +66,7 @@ class History extends Component {
   }
 
   render() {
-    const { companies, invoicesArr } = this.props
+    const { companies } = this.props
     return (
       <Paper className="history-container">
         <div className="filters-container">
