@@ -29,7 +29,7 @@ let invoices = {
   },
   "6ni6ok3ym7mf1p33lnez": {
     id: '6ni6ok3ym7mf1p33lnez',
-    invoiceNumber: 802,
+    invoiceNumber: 8028,
     billTo: 'schneider',
     timestamp: 1538806606146,
     status: 'Paid',
@@ -55,7 +55,7 @@ let invoices = {
   }
 }
 
-function generateUID () {
+const generateUID = () => {
   return Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15)
 }
 
@@ -63,19 +63,19 @@ const generateInvoiceId = () => {
   return (Math.floor(Math.random() * 10000) + 10000).toString().substring(1)
 }
 
-export function _getCompanies () {
+export const _getCompanies = () => {
   return new Promise((res, rej) => {
     setTimeout(() => res({...companies}), 1000)
   })
 }
 
-export function _getInvoices () {
+export const _getInvoices = () => {
   return new Promise((res, rej) => {
     setTimeout(() => res({...invoices}), 1000)
   })
 }
 
-function formatType(type) {
+const formatType = (type) => {
   if(type === 'Dry Van (V)') {
     return 'V'
   } else if(type === 'Box Truck (B)') {
@@ -85,7 +85,7 @@ function formatType(type) {
   }
 }
 
-function formatInvoice (invoice) {
+const formatInvoice = (invoice) => {
   return {
     id: generateUID(),
     invoiceNumber: generateInvoiceId(),
@@ -101,7 +101,7 @@ function formatInvoice (invoice) {
   }
 }
 
-function formatCompany (company) {
+const formatCompany = (company) => {
   return {
     id: company.id,
     name: company.name,
@@ -110,7 +110,7 @@ function formatCompany (company) {
   }
 }
 
-export function _saveInvoice (invoice) {
+export const _saveInvoice = (invoice) => {
   return new Promise((res, rej) => {
     const formattedInvoice = formatInvoice(invoice);
 
@@ -124,7 +124,7 @@ export function _saveInvoice (invoice) {
   })
 }
 
-export function _saveCompany (company) {
+export const _saveCompany = (company) => {
   return new Promise((res, rej) => {
     const formattedCompany = formatCompany(company)
 
